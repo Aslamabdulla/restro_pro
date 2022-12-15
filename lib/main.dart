@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:restro_pro/view/home_page/home_page.dart';
+
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:restro_pro/model/hive_model/hive_model_order.dart';
+
 import 'package:restro_pro/view/splash_screen/splash_screen.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(OrderModelAdapter());
   runApp(const MyApp());
 }
 

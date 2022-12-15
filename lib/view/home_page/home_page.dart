@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/custom_clipper.dart';
+import 'package:restro_pro/dependency/dependency.dart';
+
+import 'widgets/category_widget.dart';
+import 'widgets/place_order_button_widget.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -10,29 +14,40 @@ class HomePageScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "MENU",
-          style: TextStyle(fontWeight: FontWeight.w800),
-        ),
+        title: const Text("ORDER MENU", style: textHomeHeadStyle),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: kClipperBgBlue,
+        backgroundColor: kClipperBgOrange,
       ),
-      body: Column(
+      body: Stack(
         children: <Widget>[
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-                height: 300.0,
-                width: Get.width,
-                decoration: const BoxDecoration(
-                  color: kClipperBgBlue,
-                  //image: DecorationImage(image: NetworkImage('https://www.viajejet.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada-1440x810.jpg'))
-                ),
-                child: Column(
-                  children: [],
-                )),
+              height: 300.0,
+              width: Get.width,
+              decoration: const BoxDecoration(
+                color: kClipperBgOrange,
+                //image: DecorationImage(image: NetworkImage('https://www.viajejet.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada-1440x810.jpg'))
+              ),
+            ),
           ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              ExpansionTile(
+                title: Text("Most Popular"),
+                children: [
+                  Text("data"),
+                  Text("data"),
+                  Text("data"),
+                  Text("data"),
+                ],
+              ),
+              CategoryWidget(),
+              PlaceOrderButtonWidget()
+            ],
+          )
         ],
       ),
     );
