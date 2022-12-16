@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/constants.dart';
 import 'package:restro_pro/common/custom_clipper.dart';
 import 'package:restro_pro/view/order_page/widgets/build_order_tile_widget.dart';
@@ -36,13 +34,20 @@ class OrderHistoryScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return buildOrderTileWidget(products, index);
-            },
-            itemCount: products.length,
-          ),
+          products.isEmpty
+              ? const Center(
+                  child: Text(
+                    "NO ITEM PURCHASED",
+                    style: kTextBoldBlack,
+                  ),
+                )
+              : ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return buildOrderTileWidget(products, index);
+                  },
+                  itemCount: products.length,
+                ),
         ],
       ),
     );

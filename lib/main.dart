@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:restro_pro/model/hive_model/hive_model_order.dart';
-
 import 'package:restro_pro/view/splash_screen/splash_screen.dart';
 
 void main() async {
@@ -13,7 +11,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(OrderModelAdapter());
   await Hive.openBox("history");
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -30,6 +29,7 @@ class MyApp extends StatelessWidget {
         title: 'Restro Pro',
         theme: ThemeData(
           fontFamily: "Nunito",
+          textTheme: TextTheme(button: TextStyle(fontSize: 18.sp)),
           primarySwatch: Colors.blue,
         ),
         home: const SplashScreen(),

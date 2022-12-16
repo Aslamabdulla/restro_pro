@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import 'package:restro_pro/common/constants.dart';
 import 'package:restro_pro/common/custom_clipper.dart';
 import 'package:restro_pro/dependency/dependency.dart';
 import 'package:restro_pro/view/order_page/order_page.dart';
-
 import 'widgets/category_widget/category_widget.dart';
 import 'widgets/most_popular_widget/most_popular_tile.dart';
 import 'widgets/place_order_widget/place_order_button_widget.dart';
@@ -51,7 +49,7 @@ class HomePageScreen extends StatelessWidget {
           ),
           Obx(
             () => Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10).w,
               child: Column(
                 children: [
                   itemController.mostPopularSorted.isNotEmpty

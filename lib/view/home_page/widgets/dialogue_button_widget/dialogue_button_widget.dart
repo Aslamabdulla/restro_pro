@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/constants.dart';
 
@@ -13,8 +14,8 @@ class DialogueButton extends StatelessWidget {
       borderRadius: kBorderRadiusButton,
       elevation: 2,
       child: Container(
-        height: 50,
-        width: 100,
+        height: 50.h,
+        width: 100.w,
         decoration: BoxDecoration(
             color: kClipperBgOrange, borderRadius: kBorderRadiusButton),
         child: const Center(

@@ -2,13 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
-
 import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/constants.dart';
 import 'package:restro_pro/dependency/dependency.dart';
-
 import 'package:restro_pro/view/add_button_widget/add_button.dart';
 import 'package:restro_pro/view/counter_qty_widget/counter_qty.dart';
 import 'package:restro_pro/view/home_page/widgets/best_seller_icon/best_seller.dart';

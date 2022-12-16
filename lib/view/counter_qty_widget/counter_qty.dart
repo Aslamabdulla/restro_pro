@@ -9,12 +9,11 @@ import 'package:restro_pro/controller/item_controller/item_controller.dart';
 import 'widgets/widgets.dart';
 
 class CounterQtyWidget extends StatelessWidget {
-  CounterQtyWidget({
+  const CounterQtyWidget({
     Key? key,
     required this.product,
   }) : super(key: key);
   final dynamic product;
-  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class CounterQtyWidget extends StatelessWidget {
                   ctrl.cartProducts.remove(product);
 
                   Get.snackbar("Message", "Item Removed From Cart",
-                      colorText: kred);
+                      colorText: kred, backgroundColor: kWhite);
                 } else {
                   product.quantity--;
                 }

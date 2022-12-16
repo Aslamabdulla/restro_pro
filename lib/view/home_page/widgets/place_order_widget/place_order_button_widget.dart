@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/constants.dart';
-
 import 'package:restro_pro/dependency/dependency.dart';
 import 'package:restro_pro/view/home_page/widgets/dialogue_button_widget/dialogue_button_widget.dart';
+import 'widgets/place_order_text_widget.dart';
 
 class PlaceOrderButtonWidget extends StatelessWidget {
   const PlaceOrderButtonWidget({
@@ -15,8 +14,8 @@ class PlaceOrderButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.symmetric(vertical: 10).w,
+      padding: const EdgeInsets.all(8).w,
       child: GestureDetector(
         onTap: () async {
           if (itemController.cartProducts.isEmpty) {
@@ -41,33 +40,7 @@ class PlaceOrderButtonWidget extends StatelessWidget {
             itemController.update();
           }
         },
-        child: Container(
-          decoration: kButtonDecoration,
-          width: 300,
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Spacer(
-                flex: 2,
-              ),
-              const Text(
-                "Place Order",
-                style: kTextBoldBlack,
-              ),
-              const Spacer(
-                flex: 1,
-              ),
-              Obx(
-                () => Text(
-                  "₹${itemController.total.value.toString()}",
-                  style: kTextLightBoldBlack,
-                ),
-              ),
-              kWidth10
-            ],
-          ),
-        ),
+        child: const PlaceOrderTextWidget(),
       ),
     );
   }

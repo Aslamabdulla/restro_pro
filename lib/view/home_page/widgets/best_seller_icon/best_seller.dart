@@ -4,8 +4,8 @@ import 'package:restro_pro/common/common.dart';
 import 'package:restro_pro/common/constants.dart';
 
 Widget bestSeller() => Container(
-      height: 20.h,
-      width: 65.w,
+      height: 25.h,
+      width: 70.w,
       decoration: BoxDecoration(
         color: fireOpelRed,
         borderRadius: kBorderRadiusButton,
