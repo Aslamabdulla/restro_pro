@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:restro_pro/common/common.dart';
+
+import 'package:restro_pro/common/constants.dart';
 import 'package:restro_pro/dependency/dependency.dart';
 import 'package:restro_pro/view/home_page/home_page.dart';
 

@@ -21,13 +21,13 @@ class OrderModelAdapter extends TypeAdapter<OrderModel> {
       price: fields[1] as num?,
       quantity: fields[2] as int?,
       purchaseCount: fields[3] as int?,
-    );
+    )..instock = fields[4] as bool;
   }
 
   @override
   void write(BinaryWriter writer, OrderModel obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -35,7 +35,9 @@ class OrderModelAdapter extends TypeAdapter<OrderModel> {
       ..writeByte(2)
       ..write(obj.quantity)
       ..writeByte(3)
-      ..write(obj.purchaseCount);
+      ..write(obj.purchaseCount)
+      ..writeByte(4)
+      ..write(obj.instock);
   }
 
   @override

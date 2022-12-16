@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
+
 import 'package:restro_pro/common/common.dart';
+import 'package:restro_pro/common/constants.dart';
+
 import 'package:restro_pro/dependency/dependency.dart';
+import 'package:restro_pro/view/home_page/widgets/dialogue_button_widget/dialogue_button_widget.dart';
 
 class PlaceOrderButtonWidget extends StatelessWidget {
   const PlaceOrderButtonWidget({
@@ -13,10 +17,29 @@ class PlaceOrderButtonWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       padding: const EdgeInsets.all(8),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(10),
-        onTap: () {
-          itemController.totalPrice();
+      child: GestureDetector(
+        onTap: () async {
+          if (itemController.cartProducts.isEmpty) {
+            Get.snackbar("Warning", "No Item Selected",
+                colorText: kDakred, backgroundColor: kWhite);
+          } else {
+            Get.defaultDialog(
+                confirm: GestureDetector(
+                    onTap: () => Get.back(), child: const DialogueButton()),
+                title: "Success",
+                content: Column(
+                  children: [
+                    Image.asset(
+                      "assets/images/success.gif",
+                      fit: BoxFit.cover,
+                    )
+                  ],
+                ));
+            itemController.totalPrice();
+
+            await itemController.mapOrder();
+            itemController.update();
+          }
         },
         child: Container(
           decoration: kButtonDecoration,
@@ -30,7 +53,7 @@ class PlaceOrderButtonWidget extends StatelessWidget {
               ),
               const Text(
                 "Place Order",
-                style: kTextBold,
+                style: kTextBoldBlack,
               ),
               const Spacer(
                 flex: 1,
@@ -38,7 +61,7 @@ class PlaceOrderButtonWidget extends StatelessWidget {
               Obx(
                 () => Text(
                   "₹${itemController.total.value.toString()}",
-                  style: kTextLightBold,
+                  style: kTextLightBoldBlack,
                 ),
               ),
               kWidth10

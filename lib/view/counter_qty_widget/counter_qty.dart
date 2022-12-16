@@ -1,11 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'package:restro_pro/common/common.dart';
+import 'package:restro_pro/common/constants.dart';
 import 'package:restro_pro/controller/item_controller/item_controller.dart';
-import 'package:restro_pro/dependency/dependency.dart';
-import 'package:restro_pro/model/product_model.dart';
 
 import 'widgets/widgets.dart';
 
@@ -14,7 +13,7 @@ class CounterQtyWidget extends StatelessWidget {
     Key? key,
     required this.product,
   }) : super(key: key);
-  final ProductModel product;
+  final dynamic product;
   int quantity = 1;
 
   @override
@@ -40,7 +39,7 @@ class CounterQtyWidget extends StatelessWidget {
               kWidth5,
               Text(
                 product.quantity.toString(),
-                style: const TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18.sp),
               ),
               kWidth5,
               buildCounter(() {

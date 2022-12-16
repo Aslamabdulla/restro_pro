@@ -13,6 +13,8 @@ class OrderModel extends HiveObject {
   int? quantity;
   @HiveField(3)
   int? purchaseCount;
+  @HiveField(4)
+  bool instock = true;
   OrderModel({
     this.name,
     this.price,
@@ -21,11 +23,11 @@ class OrderModel extends HiveObject {
   });
 }
 
-String boxName = "orders";
+// String boxName = "orders";
 
-class OrderBox {
-  static Box<List>? _box;
-  static Box<List> getInstance() {
-    return _box ??= Hive.box(boxName);
-  }
-}
+// class OrderBox {
+//   static Box<List>? _box;
+//   static Box<List> getInstance() {
+//     return _box ??= Hive.box(boxName);
+//   }
+// }
