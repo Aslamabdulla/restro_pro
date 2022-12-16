@@ -42,6 +42,7 @@
   - View Order History
   - Custom Paintined UI
   - Custom Animations
+  - Parsing JSON Locally
 ## ADDITIONAL INFO
   ## FOR APK  PLEASE LOOK IN TO REPOSITORY "ANDROIDAPK" FOLDER ( NB: PLEASE REMOVE "ANDROIDAPK" FOLDER WHEN YOU CLONE THE REPOSITORY)
    
